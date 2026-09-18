@@ -30,7 +30,7 @@ The project is being developed incrementally with a strong focus on:
 
 * Node.js
 * Express
-* TypeScript
+* JavaScript
 * REST API
 
 ### Database
