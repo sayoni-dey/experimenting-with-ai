@@ -76,7 +76,7 @@ The backend will use:
 
 * Node.js
 * Express
-* TypeScript
+* JavaScript
 
 The backend will be responsible for:
 

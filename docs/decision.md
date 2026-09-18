@@ -46,7 +46,7 @@ Use Next.js with TypeScript.
 
 **Status:** Accepted
 
-Use Node.js with Express and TypeScript.
+Use Node.js with Express and JavaScript.
 
 ---
 
