@@ -2,9 +2,7 @@
 
 ## Current Status
 
-The project is currently in the architecture and initialization phase.
-
-This document will evolve as technical decisions are made.
+Backend is initialised with Node and Express. Frontend is initialised with Next.js
 
 ---
 

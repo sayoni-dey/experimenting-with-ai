@@ -72,11 +72,27 @@ The project is currently small enough that microservices would introduce operati
 
 ### Database
 
-**Status:** Proposed
+**Status:** Accepted
 
-A relational database is preferred because of the relationships among users, listings, bookings, reviews, and availability.
+Use PostgreSQL hosted by Supabase.
 
-Specific database technology is not yet finalized.
+Reason:
+
+* Suits the relational data model (users, listings, bookings, reviews, availability).
+* Provides managed Postgres, REST/JS client, and authentication out of the box.
+* Backend initializes clients through `@supabase/server` core primitives (`resolveEnv`, `createContextClient`, `createAdminClient`), which use supabase-js under the hood and handle future inbound auth automatically.
+
+Alternatives considered:
+
+* Local PostgreSQL install (more operational setup, no managed auth).
+* MySQL (relational but lacks the managed auth/API layer of Supabase).
+
+Consequences:
+
+* Connection credentials live in the backend `.env` file.
+* The secret key stored in `SUPABASE_SECRET_KEY` (new-style API key, replaces legacy `SUPABASE_SERVICE_ROLE_KEY`) bypasses Row-Level Security and must be kept out of client code.
+* The publishable key in `SUPABASE_PUBLISHABLE_KEY` (replaces legacy `SUPABASE_ANON_KEY`) is client-safe and used by the RLS-scoped client.
+* Environment variables use the new Supabase API key naming: `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`, and `SUPABASE_JWKS_URL`.
 
 ---
 
